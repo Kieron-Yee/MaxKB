@@ -78,6 +78,7 @@ import { ref } from 'vue'
 import AddParamDrawer from './AddParamDrawer.vue'
 import { MsgError, MsgSuccess } from '@/utils/message'
 import ModelApi from '@/api/model'
+import { t } from '@/locales/index'
 import { input_type_list } from '@/components/dynamics-form/constructor/data'
 
 const props = defineProps<{

@@ -1,30 +1,30 @@
-# Contributing
+# 贡献指南
 
-As a contributor, you should agree that:
+作为贡献者，您需要同意：
 
-- The producer can adjust the open-source agreement to be more strict or relaxed as deemed necessary.
-- Your contributed code may be used for commercial purposes, including but not limited to its cloud business operations.
+- 制作方可以根据需要调整开源协议，使其更加严格或宽松。
+- 您贡献的代码可能被用于商业用途，包括但不限于云业务运营。
 
-## Create pull request
-PR are always welcome, even if they only contain small fixes like typos or a few lines of code. If there will be a significant effort, please document it as an issue and get a discussion going before starting to work on it.
+## 创建拉取请求（Pull Request）
+我们始终欢迎PR，即使只是修复错别字或几行代码。如果您计划进行大量工作，请先创建一个 issue 并进行讨论，然后再开始工作。
 
-Please submit a PR broken down into small changes bit by bit. A PR consisting of a lot of features and code changes may be hard to review. It is recommended to submit PRs in an incremental fashion.
+请将PR分解成小的改动逐步提交。包含大量功能和代码更改的PR可能难以审查。我们建议以增量方式提交PR。
 
-This [development guideline](https://github.com/1Panel-dev/MaxKB/wiki/3-%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA) contains information about repository structure, how to set up development environment, how to run it, and more.
+这份[开发指南](https://github.com/1Panel-dev/MaxKB/wiki/3-%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA)包含了仓库结构、如何搭建开发环境、如何运行项目等信息。
 
-Note: If you split your pull request to small changes, please make sure any of the changes goes to master will not break anything. Otherwise, it can not be merged until this feature complete.
+注意：如果您将拉取请求分解成小的改动，请确保合并到主分支的任何改动都不会破坏现有功能。否则，在该功能完全完成之前将无法合并。
 
-## Report issues
-It is a great way to contribute by reporting an issue. Well-written and complete bug reports are always welcome! Please open an issue and follow the template to fill in required information.
+## 报告问题
+报告问题是贡献的好方式。我们永远欢迎书写良好且完整的问题报告！请创建一个issue并按照模板填写所需信息。
 
-Before opening any issue, please look up the existing issues to avoid submitting a duplication.
-If you find a match, you can "subscribe" to it to get notified on updates. If you have additional helpful information about the issue, please leave a comment.
+在创建新issue之前，请先查看现有的issue，以避免重复提交。
+如果您发现匹配的issue，可以"订阅"它以接收更新通知。如果您有关于该问题的其他有用信息，请留下评论。
 
-When reporting issues, always include:
+报告问题时，请始终包含：
 
-* Which version you are using.
-* Steps to reproduce the issue.
-* Snapshots or log files if needed
+* 您使用的版本。
+* 复现问题的步骤。
+* 需要时提供截图或日志文件。
 
-Because the issues are open to the public, when submitting files, be sure to remove any sensitive information, e.g. user name, password, IP address, and company name. You can
-replace those parts with "REDACTED" or other strings like "****".
+由于issue是公开的，提交文件时请确保删除任何敏感信息，如用户名、密码、IP地址和公司名称。您可以
+用"REDACTED"或其他字符串如"****"替换这些部分。

@@ -49,17 +49,14 @@
               </el-button>
               <template #dropdown>
                 <div style="width: 280px" class="p-12-16">
-                  <h5>{{ $t('views.applicationWorkflow.condition.title') }}</h5>
+                  <h5>执行条件</h5>
                   <p class="mt-8 lighter">
-                    <span>{{ $t('views.applicationWorkflow.condition.front') }}</span>
+                    <span>前置</span>
                     <el-select v-model="condition" size="small" style="width: 60px; margin: 0 8px">
-                      <el-option
-                        :label="$t('views.applicationWorkflow.condition.AND')"
-                        value="AND"
-                      />
-                      <el-option :label="$t('views.applicationWorkflow.condition.OR')" value="OR" />
+                      <el-option label="所有" value="AND" />
+                      <el-option label="任一" value="OR" />
                     </el-select>
-                    <span>{{ $t('views.applicationWorkflow.condition.text') }}</span>
+                    <span>连线节点执行完，执行当前节点</span>
                   </p>
                 </div>
               </template>
@@ -70,9 +67,7 @@
               </el-button>
               <template #dropdown>
                 <el-dropdown-menu style="min-width: 80px">
-                  <el-dropdown-item @click="copyNode" class="p-8">{{
-                    $t('common.copy')
-                  }}</el-dropdown-item>
+                  <el-dropdown-item @click="copyNode" class="p-8">复制</el-dropdown-item>
                   <el-dropdown-item @click="deleteNode" class="border-t p-8">{{
                     $t('common.delete')
                   }}</el-dropdown-item>
@@ -86,20 +81,14 @@
             <el-alert
               v-if="node_status != 200"
               class="mb-16"
-              :title="
-                props.nodeModel.type === 'application-node'
-                  ? $t('views.applicationWorkflow.tip.applicationNodeError')
-                  : $t('views.applicationWorkflow.tip.functionNodeError')
-              "
+              :title="props.nodeModel.type === 'application-node' ? '该应用不可用' : '该函数不可用'"
               type="error"
               show-icon
               :closable="false"
             />
             <slot></slot>
             <template v-if="nodeFields.length > 0">
-              <h5 class="title-decoration-1 mb-8 mt-8">
-                {{ $t('components.chat.executionDetails.paramOutput') }}
-              </h5>
+              <h5 class="title-decoration-1 mb-8 mt-8">参数输出</h5>
               <template v-for="(item, index) in nodeFields" :key="index">
                 <div
                   class="flex-between border-r-4 p-8-12 mb-8 layout-bg lighter"
@@ -109,7 +98,7 @@
                   <span style="max-width: 92%">{{ item.label }} {{ '{' + item.value + '}' }}</span>
                   <el-tooltip
                     effect="dark"
-                    :content="$t('views.applicationWorkflow.setting.copyParam')"
+                    content="复制参数"
                     placement="top"
                     v-if="showicon === index"
                   >
@@ -147,9 +136,10 @@ import DropdownMenu from '@/views/application-workflow/component/DropdownMenu.vu
 import { set } from 'lodash'
 import { iconComponent } from '../icons/utils'
 import { copyClick } from '@/utils/clipboard'
+import { t } from '@/locales/index'
 import { WorkflowType } from '@/enums/workflow'
 import { MsgError, MsgConfirm } from '@/utils/message'
-import { t } from '@/locales'
+
 const {
   params: { id }
 } = app.config.globalProperties.$route as any
@@ -211,7 +201,7 @@ function editName(val: string) {
     ) {
       set(props.nodeModel.properties, 'stepName', val.trim())
     } else {
-      MsgError(t('views.applicationWorkflow.tip.repeatedNodeError'))
+      MsgError('节点名称已存在！')
     }
   }
 }
@@ -230,7 +220,7 @@ const copyNode = () => {
   props.nodeModel.graphModel.toFront(cloneNode.id)
 }
 const deleteNode = () => {
-  MsgConfirm(t('common.tip'), t('views.applicationWorkflow.delete.confirmTitle'), {
+  MsgConfirm(t('common.tip'), `确定删除该节点？`, {
     confirmButtonText: t('common.delete'),
     confirmButtonClass: 'danger'
   }).then(() => {

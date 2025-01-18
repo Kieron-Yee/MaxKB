@@ -184,7 +184,7 @@ import { useRoute, useRouter } from 'vue-router'
 import { getImgUrl } from '@/utils/utils'
 import bus from '@/bus'
 import 'recorder-core/src/engine/mp3'
-
+import { t } from '@/locales/index'
 import 'recorder-core/src/engine/mp3-engine'
 import { MsgWarning } from '@/utils/message'
 import useStore from '@/stores'
