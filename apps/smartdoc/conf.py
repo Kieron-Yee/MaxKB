@@ -77,9 +77,9 @@ class Config(dict):
     defaults = {
         # 数据库相关配置
         "DB_HOST": "127.0.0.1",
-        "DB_PORT": 5432,
+        "DB_PORT": 5433,
         "DB_USER": "root",
-        "DB_PASSWORD": "Password123@postgres",
+        "DB_PASSWORD": "123456",
         "DB_ENGINE": "dj_db_conn_pool.backends.postgresql",
         "DB_MAX_OVERFLOW": 80,
         'LANGUAGE_CODE': 'zh-CN',
